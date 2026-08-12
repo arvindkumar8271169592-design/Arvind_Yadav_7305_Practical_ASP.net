@@ -1,0 +1,127 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChangePassword.aspx.cs" Inherits="PasswordChange.ChangePassword" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Change Password</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f4f7;
+        }
+
+        .container {
+            width: 400px;
+            margin: 80px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .description {
+            text-align: center;
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        .input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        .back {
+            text-align: center;
+            margin-top: 18px;
+        }
+
+        .back a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<form id="form1" runat="server">
+
+    <div class="container">
+
+        <h1>Change Password</h1>
+
+        <p class="description">
+            Enter your current password and create a new password.
+        </p>
+
+        <label>Current Password</label>
+        <asp:TextBox ID="txtCurrentPassword" runat="server"
+            CssClass="input"
+            TextMode="Password"
+            placeholder="Enter current password">
+        </asp:TextBox>
+
+        <label>New Password</label>
+        <asp:TextBox ID="txtNewPassword" runat="server"
+            CssClass="input"
+            TextMode="Password"
+            placeholder="Enter new password">
+        </asp:TextBox>
+
+        <label>Confirm New Password</label>
+        <asp:TextBox ID="txtConfirmPassword" runat="server"
+            CssClass="input"
+            TextMode="Password"
+            placeholder="Confirm new password">
+        </asp:TextBox>
+
+        <asp:Button ID="btnChangePassword" runat="server"
+            Text="Change Password"
+            CssClass="btn" />
+
+        <div class="back">
+            <a href="#">Back to Login</a>
+        </div>
+
+    </div>
+
+</form>
+
+</body>
+</html>
