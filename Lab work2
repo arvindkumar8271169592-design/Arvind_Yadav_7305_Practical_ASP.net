@@ -1,0 +1,147 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="RegistrationForm.Registration" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Registration Form</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f4f7;
+        }
+
+        .form-container {
+            width: 450px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        .input {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .gender {
+            margin-top: 8px;
+        }
+
+        .btn {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        .login {
+            text-align: center;
+            margin-top: 15px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+<form id="form1" runat="server">
+
+    <div class="form-container">
+
+        <h1>Registration Form</h1>
+
+        <label>Full Name</label>
+        <asp:TextBox ID="txtName" runat="server"
+            CssClass="input"
+            placeholder="Enter your full name">
+        </asp:TextBox>
+
+        <label>Email</label>
+        <asp:TextBox ID="txtEmail" runat="server"
+            CssClass="input"
+            placeholder="Enter your email">
+        </asp:TextBox>
+
+        <label>Mobile Number</label>
+        <asp:TextBox ID="txtMobile" runat="server"
+            CssClass="input"
+            placeholder="Enter mobile number">
+        </asp:TextBox>
+
+        <label>Password</label>
+        <asp:TextBox ID="txtPassword" runat="server"
+            CssClass="input"
+            TextMode="Password"
+            placeholder="Enter password">
+        </asp:TextBox>
+
+        <label>Confirm Password</label>
+        <asp:TextBox ID="txtConfirmPassword" runat="server"
+            CssClass="input"
+            TextMode="Password"
+            placeholder="Confirm password">
+        </asp:TextBox>
+
+        <label>Gender</label>
+        <div class="gender">
+            <asp:RadioButton ID="rbMale" runat="server"
+                GroupName="Gender" Text=" Male " />
+
+            <asp:RadioButton ID="rbFemale" runat="server"
+                GroupName="Gender" Text=" Female " />
+        </div>
+
+        <label>City</label>
+        <asp:DropDownList ID="ddlCity" runat="server"
+            CssClass="input">
+            <asp:ListItem>Select City</asp:ListItem>
+            <asp:ListItem>Delhi</asp:ListItem>
+            <asp:ListItem>Mumbai</asp:ListItem>
+            <asp:ListItem>Patna</asp:ListItem>
+            <asp:ListItem>Ahmedabad</asp:ListItem>
+        </asp:DropDownList>
+
+        <asp:Button ID="btnRegister" runat="server"
+            Text="Register"
+            CssClass="btn" />
+
+        <div class="login">
+            Already have an account? Login here.
+        </div>
+
+    </div>
+
+</form>
+
+</body>
+</html>
