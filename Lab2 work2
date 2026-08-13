@@ -1,0 +1,288 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Marksheet.aspx.cs" Inherits="StudentMarksheet.Marksheet" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Student Marksheet</title>
+</head>
+<body>
+
+<form id="form1" runat="server">
+
+    <div>
+
+        <h2>Student Marksheet Form</h2>
+
+        <!-- Roll Number -->
+        Roll No:
+        <asp:TextBox ID="txtRollNo" runat="server"></asp:TextBox>
+
+        <asp:RequiredFieldValidator
+            ID="rfvRollNo"
+            runat="server"
+            ControlToValidate="txtRollNo"
+            ErrorMessage="Enter Roll Number"
+            ForeColor="Red">
+        </asp:RequiredFieldValidator>
+
+        <br /><br />
+
+
+        <!-- Student Name -->
+        Name:
+        <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+
+        <asp:RequiredFieldValidator
+            ID="rfvName"
+            runat="server"
+            ControlToValidate="txtName"
+            ErrorMessage="Enter Student Name"
+            ForeColor="Red">
+        </asp:RequiredFieldValidator>
+
+        <br /><br />
+
+
+        <!-- Course -->
+        Course:
+        <asp:DropDownList ID="ddlCourse" runat="server">
+
+            <asp:ListItem Value="">-- Select Course --</asp:ListItem>
+            <asp:ListItem Value="BCA">BCA</asp:ListItem>
+            <asp:ListItem Value="BBA">BBA</asp:ListItem>
+            <asp:ListItem Value="B.Tech">B.Tech</asp:ListItem>
+            <asp:ListItem Value="MCA">MCA</asp:ListItem>
+
+        </asp:DropDownList>
+
+        <asp:RequiredFieldValidator
+            ID="rfvCourse"
+            runat="server"
+            ControlToValidate="ddlCourse"
+            InitialValue=""
+            ErrorMessage="Select Course"
+            ForeColor="Red">
+        </asp:RequiredFieldValidator>
+
+        <br /><br />
+
+
+        <!-- Semester -->
+        Semester:
+        <asp:DropDownList ID="ddlSemester" runat="server">
+
+            <asp:ListItem Value="">-- Select Semester --</asp:ListItem>
+            <asp:ListItem Value="1">Semester 1</asp:ListItem>
+            <asp:ListItem Value="2">Semester 2</asp:ListItem>
+            <asp:ListItem Value="3">Semester 3</asp:ListItem>
+            <asp:ListItem Value="4">Semester 4</asp:ListItem>
+            <asp:ListItem Value="5">Semester 5</asp:ListItem>
+            <asp:ListItem Value="6">Semester 6</asp:ListItem>
+
+        </asp:DropDownList>
+
+        <asp:RequiredFieldValidator
+            ID="rfvSemester"
+            runat="server"
+            ControlToValidate="ddlSemester"
+            InitialValue=""
+            ErrorMessage="Select Semester"
+            ForeColor="Red">
+        </asp:RequiredFieldValidator>
+
+        <br /><br />
+
+
+        <!-- Email -->
+        Email ID:
+        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+
+        <asp:RequiredFieldValidator
+            ID="rfvEmail"
+            runat="server"
+            ControlToValidate="txtEmail"
+            ErrorMessage="Enter Email ID"
+            ForeColor="Red">
+        </asp:RequiredFieldValidator>
+
+        <asp:RegularExpressionValidator
+            ID="revEmail"
+            runat="server"
+            ControlToValidate="txtEmail"
+            ErrorMessage="Enter Valid Email"
+            ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+            ForeColor="Red">
+        </asp:RegularExpressionValidator>
+
+        <br /><br />
+
+
+        <!-- Mobile Number -->
+        Mobile Number:
+        <asp:TextBox ID="txtMobile" runat="server"></asp:TextBox>
+
+        <asp:RequiredFieldValidator
+            ID="rfvMobile"
+            runat="server"
+            ControlToValidate="txtMobile"
+            ErrorMessage="Enter Mobile Number"
+            ForeColor="Red">
+        </asp:RequiredFieldValidator>
+
+        <asp:RegularExpressionValidator
+            ID="revMobile"
+            runat="server"
+            ControlToValidate="txtMobile"
+            ErrorMessage="Enter Valid 10 Digit Mobile Number"
+            ValidationExpression="^[0-9]{10}$"
+            ForeColor="Red">
+        </asp:RegularExpressionValidator>
+
+        <br /><br />
+
+        <h3>Enter Marks of Five Subjects</h3>
+
+
+        <!-- Subject 1 -->
+        Subject 1:
+        <asp:TextBox ID="txtSub1" runat="server"></asp:TextBox>
+
+        <asp:RequiredFieldValidator
+            ID="rfvSub1"
+            runat="server"
+            ControlToValidate="txtSub1"
+            ErrorMessage="Enter Subject 1 Marks"
+            ForeColor="Red">
+        </asp:RequiredFieldValidator>
+
+        <asp:RangeValidator
+            ID="rvSub1"
+            runat="server"
+            ControlToValidate="txtSub1"
+            MinimumValue="0"
+            MaximumValue="100"
+            Type="Integer"
+            ErrorMessage="Marks must be between 0 to 100"
+            ForeColor="Red">
+        </asp:RangeValidator>
+
+        <br /><br />
+
+
+        <!-- Subject 2 -->
+        Subject 2:
+        <asp:TextBox ID="txtSub2" runat="server"></asp:TextBox>
+
+        <asp:RequiredFieldValidator
+            ID="rfvSub2"
+            runat="server"
+            ControlToValidate="txtSub2"
+            ErrorMessage="Enter Subject 2 Marks"
+            ForeColor="Red">
+        </asp:RequiredFieldValidator>
+
+        <asp:RangeValidator
+            ID="rvSub2"
+            runat="server"
+            ControlToValidate="txtSub2"
+            MinimumValue="0"
+            MaximumValue="100"
+            Type="Integer"
+            ErrorMessage="Marks must be between 0 to 100"
+            ForeColor="Red">
+        </asp:RangeValidator>
+
+        <br /><br />
+
+
+        <!-- Subject 3 -->
+        Subject 3:
+        <asp:TextBox ID="txtSub3" runat="server"></asp:TextBox>
+
+        <asp:RequiredFieldValidator
+            ID="rfvSub3"
+            runat="server"
+            ControlToValidate="txtSub3"
+            ErrorMessage="Enter Subject 3 Marks"
+            ForeColor="Red">
+        </asp:RequiredFieldValidator>
+
+        <asp:RangeValidator
+            ID="rvSub3"
+            runat="server"
+            ControlToValidate="txtSub3"
+            MinimumValue="0"
+            MaximumValue="100"
+            Type="Integer"
+            ErrorMessage="Marks must be between 0 to 100"
+            ForeColor="Red">
+        </asp:RangeValidator>
+
+        <br /><br />
+
+
+        <!-- Subject 4 -->
+        Subject 4:
+        <asp:TextBox ID="txtSub4" runat="server"></asp:TextBox>
+
+        <asp:RequiredFieldValidator
+            ID="rfvSub4"
+            runat="server"
+            ControlToValidate="txtSub4"
+            ErrorMessage="Enter Subject 4 Marks"
+            ForeColor="Red">
+        </asp:RequiredFieldValidator>
+
+        <asp:RangeValidator
+            ID="rvSub4"
+            runat="server"
+            ControlToValidate="txtSub4"
+            MinimumValue="0"
+            MaximumValue="100"
+            Type="Integer"
+            ErrorMessage="Marks must be between 0 to 100"
+            ForeColor="Red">
+        </asp:RangeValidator>
+
+        <br /><br />
+
+
+        <!-- Subject 5 -->
+        Subject 5:
+        <asp:TextBox ID="txtSub5" runat="server"></asp:TextBox>
+
+        <asp:RequiredFieldValidator
+            ID="rfvSub5"
+            runat="server"
+            ControlToValidate="txtSub5"
+            ErrorMessage="Enter Subject 5 Marks"
+            ForeColor="Red">
+        </asp:RequiredFieldValidator>
+
+        <asp:RangeValidator
+            ID="rvSub5"
+            runat="server"
+            ControlToValidate="txtSub5"
+            MinimumValue="0"
+            MaximumValue="100"
+            Type="Integer"
+            ErrorMessage="Marks must be between 0 to 100"
+            ForeColor="Red">
+        </asp:RangeValidator>
+
+        <br /><br />
+
+
+        <!-- Submit Button -->
+        <asp:Button
+            ID="btnSubmit"
+            runat="server"
+            Text="Submit"
+            OnClick="btnSubmit_Click" />
+
+    </div>
+
+</form>
+
+</body>
+</html>
