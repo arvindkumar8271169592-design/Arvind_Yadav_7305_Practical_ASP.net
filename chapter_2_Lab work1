@@ -1,0 +1,35 @@
+<%@ Page Language="C#" AutoEventWireup="true" 
+    CodeBehind="Login.aspx.cs" Inherits="LoginDemo.Login" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Login Page</title>
+</head>
+<body>
+
+<form id="form1" runat="server">
+
+    <h2>User Login</h2>
+
+    <asp:Label ID="Label1" runat="server" Text="User ID:"></asp:Label>
+    <asp:TextBox ID="txtUserId" runat="server"></asp:TextBox>
+
+    <br /><br />
+
+    <asp:Label ID="Label2" runat="server" Text="Password:"></asp:Label>
+    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+
+    <br /><br />
+
+    <asp:Button ID="btnLogin" runat="server"
+        Text="Login" OnClick="btnLogin_Click" />
+
+    <br /><br />
+
+    <asp:Label ID="lblMessage" runat="server"></asp:Label>
+
+</form>
+
+</body>
+</html>
