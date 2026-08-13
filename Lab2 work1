@@ -1,0 +1,163 @@
+<%@ Page Language="C#" AutoEventWireup="true"
+    CodeBehind="StudentAdmission.aspx.cs"
+    Inherits="AdmissionForm.StudentAdmission" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Student Admission Form</title>
+</head>
+<body>
+
+<form id="form1" runat="server">
+
+    <h2>Student Admission Form</h2>
+
+    <!-- Student Name -->
+    <asp:Label ID="lblName" runat="server"
+        Text="Student Name:"></asp:Label>
+
+    <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+
+    <asp:RequiredFieldValidator
+        ID="rfvName"
+        runat="server"
+        ControlToValidate="txtName"
+        ErrorMessage="Please enter student name!"
+        ForeColor="Red">
+    </asp:RequiredFieldValidator>
+
+    <br /><br />
+
+    <!-- Email -->
+    <asp:Label ID="lblEmail" runat="server"
+        Text="Email:"></asp:Label>
+
+    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+
+    <asp:RequiredFieldValidator
+        ID="rfvEmail"
+        runat="server"
+        ControlToValidate="txtEmail"
+        ErrorMessage="Please enter email!"
+        ForeColor="Red">
+    </asp:RequiredFieldValidator>
+
+    <asp:RegularExpressionValidator
+        ID="revEmail"
+        runat="server"
+        ControlToValidate="txtEmail"
+        ErrorMessage="Enter valid email!"
+        ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+        ForeColor="Red">
+    </asp:RegularExpressionValidator>
+
+    <br /><br />
+
+    <!-- Mobile Number -->
+    <asp:Label ID="lblMobile" runat="server"
+        Text="Mobile Number:"></asp:Label>
+
+    <asp:TextBox ID="txtMobile" runat="server"></asp:TextBox>
+
+    <asp:RequiredFieldValidator
+        ID="rfvMobile"
+        runat="server"
+        ControlToValidate="txtMobile"
+        ErrorMessage="Please enter mobile number!"
+        ForeColor="Red">
+    </asp:RequiredFieldValidator>
+
+    <asp:RegularExpressionValidator
+        ID="revMobile"
+        runat="server"
+        ControlToValidate="txtMobile"
+        ErrorMessage="Enter valid 10 digit mobile number!"
+        ValidationExpression="[0-9]{10}"
+        ForeColor="Red">
+    </asp:RegularExpressionValidator>
+
+    <br /><br />
+
+    <!-- Gender -->
+    <asp:Label ID="lblGender" runat="server"
+        Text="Gender:"></asp:Label>
+
+    <asp:RadioButtonList ID="rblGender" runat="server">
+        <asp:ListItem Text="Male" Value="Male"></asp:ListItem>
+        <asp:ListItem Text="Female" Value="Female"></asp:ListItem>
+    </asp:RadioButtonList>
+
+    <asp:RequiredFieldValidator
+        ID="rfvGender"
+        runat="server"
+        ControlToValidate="rblGender"
+        ErrorMessage="Please select gender!"
+        ForeColor="Red">
+    </asp:RequiredFieldValidator>
+
+    <br />
+
+    <!-- Course -->
+    <asp:Label ID="lblCourse" runat="server"
+        Text="Select Course:"></asp:Label>
+
+    <asp:DropDownList ID="ddlCourse" runat="server">
+        <asp:ListItem Text="-- Select Course --" Value=""></asp:ListItem>
+        <asp:ListItem Text="BCA" Value="BCA"></asp:ListItem>
+        <asp:ListItem Text="BBA" Value="BBA"></asp:ListItem>
+        <asp:ListItem Text="B.Tech" Value="BTech"></asp:ListItem>
+        <asp:ListItem Text="MCA" Value="MCA"></asp:ListItem>
+    </asp:DropDownList>
+
+    <asp:RequiredFieldValidator
+        ID="rfvCourse"
+        runat="server"
+        ControlToValidate="ddlCourse"
+        InitialValue=""
+        ErrorMessage="Please select course!"
+        ForeColor="Red">
+    </asp:RequiredFieldValidator>
+
+    <br /><br />
+
+    <!-- Address -->
+    <asp:Label ID="lblAddress" runat="server"
+        Text="Address:"></asp:Label>
+
+    <asp:TextBox ID="txtAddress"
+        runat="server"
+        TextMode="MultiLine"
+        Rows="4"
+        Columns="30">
+    </asp:TextBox>
+
+    <asp:RequiredFieldValidator
+        ID="rfvAddress"
+        runat="server"
+        ControlToValidate="txtAddress"
+        ErrorMessage="Please enter address!"
+        ForeColor="Red">
+    </asp:RequiredFieldValidator>
+
+    <br /><br />
+
+    <!-- Submit Button -->
+    <asp:Button ID="btnSubmit"
+        runat="server"
+        Text="Submit"
+        OnClick="btnSubmit_Click" />
+
+    <br /><br />
+
+    <!-- Success Message -->
+    <asp:Label ID="lblMessage"
+        runat="server"
+        ForeColor="Green"
+        Font-Bold="true">
+    </asp:Label>
+
+</form>
+
+</body>
+</html>
