@@ -1,0 +1,74 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Billing.aspx.cs" Inherits="Billing.Billing" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Billing Form</title>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+
+        <h2>Billing Form</h2>
+
+        <!-- Image -->
+        <asp:Image ID="imgLogo" runat="server"
+            ImageUrl="~/Images/logo.png"
+            Width="100px"
+            Height="80px" />
+
+        <br /><br />
+
+        <!-- Customer Name -->
+        <asp:Label ID="lblName" runat="server"
+            Text="Customer Name:">
+        </asp:Label>
+
+        <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+
+        <br /><br />
+
+        <!-- Product List -->
+        <asp:Label ID="lblProduct" runat="server"
+            Text="Select Product:">
+        </asp:Label>
+
+        <asp:ListBox ID="lstProduct" runat="server"
+            Rows="5">
+
+            <asp:ListItem Text="Laptop - ₹50000" Value="50000"></asp:ListItem>
+            <asp:ListItem Text="Mobile - ₹20000" Value="20000"></asp:ListItem>
+            <asp:ListItem Text="Keyboard - ₹1000" Value="1000"></asp:ListItem>
+            <asp:ListItem Text="Mouse - ₹500" Value="500"></asp:ListItem>
+            <asp:ListItem Text="Headphone - ₹1500" Value="1500"></asp:ListItem>
+
+        </asp:ListBox>
+
+        <br /><br />
+
+        <!-- Quantity -->
+        <asp:Label ID="lblQuantity" runat="server"
+            Text="Quantity:">
+        </asp:Label>
+
+        <asp:TextBox ID="txtQuantity" runat="server"
+            Text="1">
+        </asp:TextBox>
+
+        <br /><br />
+
+        <!-- Button -->
+        <asp:Button ID="btnCalculate" runat="server"
+            Text="Generate Bill"
+            OnClick="btnCalculate_Click" />
+
+        <br /><br />
+
+        <!-- Bill Result -->
+        <asp:Label ID="lblBill" runat="server"
+            Font-Bold="true">
+        </asp:Label>
+
+    </form>
+</body>
+</html>
