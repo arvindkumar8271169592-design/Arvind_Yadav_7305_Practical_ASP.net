@@ -1,0 +1,76 @@
+<%@ Page Language="C#" AutoEventWireup="true"
+    CodeBehind="HardwareStore.aspx.cs"
+    Inherits="HardwareStore.HardwareStore" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Hardware Store</title>
+</head>
+
+<body>
+<form id="form1" runat="server">
+
+    <h2>Hardware Store</h2>
+
+    <!-- ListBox -->
+    <asp:Label ID="lblItem" runat="server"
+        Text="Select Hardware Item:">
+    </asp:Label>
+
+    <br />
+
+    <asp:ListBox ID="lstItems" runat="server"
+        AutoPostBack="true"
+        OnSelectedIndexChanged="lstItems_SelectedIndexChanged"
+        Rows="5">
+
+        <asp:ListItem Text="Keyboard" Value="Keyboard"></asp:ListItem>
+        <asp:ListItem Text="Mouse" Value="Mouse"></asp:ListItem>
+        <asp:ListItem Text="Monitor" Value="Monitor"></asp:ListItem>
+        <asp:ListItem Text="Printer" Value="Printer"></asp:ListItem>
+        <asp:ListItem Text="Speaker" Value="Speaker"></asp:ListItem>
+
+    </asp:ListBox>
+
+    <br /><br />
+
+    <!-- Image -->
+    <asp:Image ID="imgItem" runat="server"
+        Width="200px"
+        Height="150px" />
+
+    <br /><br />
+
+    <!-- Price -->
+    <asp:Label ID="lblPrice" runat="server"
+        Text="Price: ₹0">
+    </asp:Label>
+
+    <br /><br />
+
+    <!-- Quantity -->
+    <asp:Label ID="lblQuantity" runat="server"
+        Text="Enter Quantity:">
+    </asp:Label>
+
+    <asp:TextBox ID="txtQuantity" runat="server">
+    </asp:TextBox>
+
+    <br /><br />
+
+    <!-- Button -->
+    <asp:Button ID="btnCalculate" runat="server"
+        Text="Calculate Cost"
+        OnClick="btnCalculate_Click" />
+
+    <br /><br />
+
+    <!-- Result -->
+    <asp:Label ID="lblCost" runat="server"
+        Font-Bold="true">
+    </asp:Label>
+
+</form>
+</body>
+</html>
