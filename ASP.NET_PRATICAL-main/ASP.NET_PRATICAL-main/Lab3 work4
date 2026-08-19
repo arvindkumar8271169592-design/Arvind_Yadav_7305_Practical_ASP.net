@@ -1,0 +1,91 @@
+<%@ Page Language="C#" AutoEventWireup="true"
+    CodeBehind="StateManagement.aspx.cs"
+    Inherits="WebApplication1.StateManagement" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>State Management</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            width: 500px;
+            margin: 50px auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .btn {
+            margin: 5px;
+            padding: 8px 15px;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+
+        <div class="container">
+
+            <h1>State Management</h1>
+
+            <asp:Label ID="Label1" runat="server"
+                Text="Enter Your Name:">
+            </asp:Label>
+
+            <br /><br />
+
+            <asp:TextBox ID="txtName" runat="server">
+            </asp:TextBox>
+
+            <br /><br />
+
+            <asp:Button ID="btnCookie" runat="server"
+                Text="Save in Cookie"
+                CssClass="btn"
+                OnClick="btnCookie_Click" />
+
+            <asp:Button ID="btnSession" runat="server"
+                Text="Save in Session"
+                CssClass="btn"
+                OnClick="btnSession_Click" />
+
+            <asp:Button ID="btnApplication" runat="server"
+                Text="Save in Application"
+                CssClass="btn"
+                OnClick="btnApplication_Click" />
+
+            <br /><br />
+
+            <asp:Button ID="btnShow" runat="server"
+                Text="Show All Values"
+                CssClass="btn"
+                OnClick="btnShow_Click" />
+
+            <br /><br />
+
+            <asp:Label ID="lblResult" runat="server"
+                CssClass="result">
+            </asp:Label>
+
+        </div>
+
+    </form>
+</body>
+</html>
