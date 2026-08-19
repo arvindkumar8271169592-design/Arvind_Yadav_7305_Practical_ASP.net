@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="calculator form.aspx.cs" Inherits="_1_7291_nitin_calculator.calculator_form" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="calculator form.aspx.cs" Inherits="_1_7305_arvind_calculator.calculator_form" %>
 
 <!DOCTYPE html>
 
