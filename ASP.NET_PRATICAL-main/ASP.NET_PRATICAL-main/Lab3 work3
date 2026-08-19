@@ -1,0 +1,77 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication1.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>My Web Application</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .menu {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin: 20px;
+        }
+
+        .content {
+            padding: 40px;
+            min-height: 300px;
+            text-align: center;
+            background-color: white;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+
+        <div class="header">
+            <h1>My Web Application</h1>
+            <p>Welcome to our Website</p>
+        </div>
+
+        <div class="menu">
+            <a href="Home.aspx">Home</a>
+            <a href="About.aspx">About</a>
+            <a href="Contact.aspx">Contact</a>
+        </div>
+
+        <div class="content">
+            <asp:ContentPlaceHolder ID="MainContent"
+                runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 My Web Application</p>
+        </div>
+
+    </form>
+</body>
+</html>
