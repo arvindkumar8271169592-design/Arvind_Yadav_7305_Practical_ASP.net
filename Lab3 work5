@@ -1,0 +1,32 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StateManagement.aspx.cs" Inherits="StateManagement.StateManagement" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>ViewState and QueryString</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <h2>State Management using ViewState and QueryString</h2>
+
+        <asp:Label ID="lblName" runat="server" Text="Enter Name: "></asp:Label>
+        <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+
+        <br /><br />
+
+        <asp:Button ID="btnViewState" runat="server"
+            Text="Save using ViewState"
+            OnClick="btnViewState_Click" />
+
+        <asp:Button ID="btnQueryString" runat="server"
+            Text="Send using QueryString"
+            OnClick="btnQueryString_Click" />
+
+        <br /><br />
+
+        <asp:Label ID="lblResult" runat="server"></asp:Label>
+
+    </form>
+</body>
+</html>
