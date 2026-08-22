@@ -1,0 +1,10 @@
+using System;using System.Configuration;using System.Data.SqlClient;
+namespace Task04{public partial class EmployeeRecruitment:System.Web.UI.Page{
+string cs=ConfigurationManager.ConnectionStrings["CollegeDB"].ConnectionString;
+void Set(SqlCommand q){q.Parameters.AddWithValue("@id",txtId.Text);q.Parameters.AddWithValue("@n",txtName.Text);q.Parameters.AddWithValue("@e",txtEmail.Text);q.Parameters.AddWithValue("@p",txtPhone.Text);q.Parameters.AddWithValue("@pos",txtPosition.Text);q.Parameters.AddWithValue("@sal",decimal.Parse(txtSalary.Text));}
+void Exec(string sql,string msg){try{using(SqlConnection c=new SqlConnection(cs))using(SqlCommand q=new SqlCommand(sql,c)){Set(q);c.Open();q.ExecuteNonQuery();lblMessage.Text=msg;}}catch(Exception x){lblMessage.Text="Error: "+x.Message;}}
+protected void btnAdd_Click(object s,EventArgs e){Exec("INSERT INTO Employees(Name,Email,Phone,Position,Salary) VALUES(@n,@e,@p,@pos,@sal)","Added.");}
+protected void btnUpdate_Click(object s,EventArgs e){Exec("UPDATE Employees SET Name=@n,Email=@e,Phone=@p,Position=@pos,Salary=@sal WHERE EmployeeId=@id","Updated.");}
+protected void btnDelete_Click(object s,EventArgs e){Exec("DELETE FROM Employees WHERE EmployeeId=@id","Deleted.");}
+protected void btnSearch_Click(object s,EventArgs e){try{using(SqlConnection c=new SqlConnection(cs))using(SqlCommand q=new SqlCommand("SELECT * FROM Employees WHERE EmployeeId=@id",c)){q.Parameters.AddWithValue("@id",txtId.Text);c.Open();using(SqlDataReader r=q.ExecuteReader()){if(r.Read()){txtName.Text=r["Name"].ToString();txtEmail.Text=r["Email"].ToString();txtPhone.Text=r["Phone"].ToString();txtPosition.Text=r["Position"].ToString();txtSalary.Text=r["Salary"].ToString();lblMessage.Text="Record found."; }else lblMessage.Text="Not found.";}}}catch(Exception x){lblMessage.Text="Error: "+x.Message;}}
+}}

@@ -1,0 +1,5 @@
+using System;using System.Configuration;using System.Data.SqlClient;using System.Web.Security;
+namespace Task02{public partial class StudentRegistration:System.Web.UI.Page{
+string cs=ConfigurationManager.ConnectionStrings["CollegeDB"].ConnectionString;
+protected void btnSubmit_Click(object s,EventArgs e){try{string p=Membership.GeneratePassword(8,2);using(SqlConnection c=new SqlConnection(cs))using(SqlCommand q=new SqlCommand("INSERT INTO Students(Name,Email,Mobile,Course,Gender,Address,UserId,Password) VALUES(@n,@e,@m,@c,@g,@a,@u,@p)",c)){q.Parameters.AddWithValue("@n",txtName.Text);q.Parameters.AddWithValue("@e",txtEmail.Text);q.Parameters.AddWithValue("@m",txtMobile.Text);q.Parameters.AddWithValue("@c",txtCourse.Text);q.Parameters.AddWithValue("@g",ddlGender.SelectedValue);q.Parameters.AddWithValue("@a",txtAddress.Text);q.Parameters.AddWithValue("@u",txtEmail.Text);q.Parameters.AddWithValue("@p",p);c.Open();q.ExecuteNonQuery();lblMessage.Text="Registration successful. User ID: "+txtEmail.Text+" | Password: "+p;}}catch(Exception x){lblMessage.Text="Error: "+x.Message;}}
+}}

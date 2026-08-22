@@ -1,0 +1,6 @@
+using System; using System.Configuration; using System.Data.SqlClient;
+namespace Task01 { public partial class SignupLogin:System.Web.UI.Page {
+string cs=ConfigurationManager.ConnectionStrings["CollegeDB"].ConnectionString;
+protected void btnSignup_Click(object s,EventArgs e){try{using(SqlConnection c=new SqlConnection(cs))using(SqlCommand q=new SqlCommand("INSERT INTO Users(Name,Email,Password) VALUES(@n,@e,@p)",c)){q.Parameters.AddWithValue("@n",txtName.Text);q.Parameters.AddWithValue("@e",txtEmail.Text);q.Parameters.AddWithValue("@p",txtPassword.Text);c.Open();q.ExecuteNonQuery();lblMessage.Text="Sign up successful.";}}catch(Exception x){lblMessage.Text="Error: "+x.Message;}}
+protected void btnLogin_Click(object s,EventArgs e){try{using(SqlConnection c=new SqlConnection(cs))using(SqlCommand q=new SqlCommand("SELECT COUNT(*) FROM Users WHERE Email=@e AND Password=@p",c)){q.Parameters.AddWithValue("@e",txtLoginEmail.Text);q.Parameters.AddWithValue("@p",txtLoginPassword.Text);c.Open();lblMessage.Text=(int)q.ExecuteScalar()>0?"Login successful.":"Invalid User ID or Password.";}}catch(Exception x){lblMessage.Text="Error: "+x.Message;}}
+}}

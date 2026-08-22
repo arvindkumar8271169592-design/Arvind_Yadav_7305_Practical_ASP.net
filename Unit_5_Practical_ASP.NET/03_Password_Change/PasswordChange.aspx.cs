@@ -1,0 +1,5 @@
+using System;using System.Configuration;using System.Data.SqlClient;
+namespace Task03{public partial class PasswordChange:System.Web.UI.Page{
+string cs=ConfigurationManager.ConnectionStrings["CollegeDB"].ConnectionString;
+protected void btnChange_Click(object s,EventArgs e){try{using(SqlConnection c=new SqlConnection(cs)){c.Open();using(SqlCommand q=new SqlCommand("SELECT COUNT(*) FROM PasswordUsers WHERE UserId=@u AND Password=@p",c)){q.Parameters.AddWithValue("@u",txtUserId.Text);q.Parameters.AddWithValue("@p",txtOldPassword.Text);if((int)q.ExecuteScalar()==0){lblMessage.Text="Invalid User ID or Password.";return;}}using(SqlCommand q=new SqlCommand("UPDATE PasswordUsers SET Password=@n WHERE UserId=@u",c)){q.Parameters.AddWithValue("@n",txtNewPassword.Text);q.Parameters.AddWithValue("@u",txtUserId.Text);q.ExecuteNonQuery();lblMessage.Text="Password changed successfully.";}}}catch(Exception x){lblMessage.Text="Error: "+x.Message;}}
+}}
